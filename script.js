@@ -20,3 +20,13 @@ setTimeout(function() {
     const buttons = document.querySelector('.home-image');
     buttons.classList.add('appear');
 }, 4000);
+
+function toggleNavbar() {
+    const actDiv = document.querySelector('.act');
+    actDiv.classList.toggle('appear');
+    
+    // Add a delay before applying sliding animation
+    setTimeout(function() {
+      actDiv.classList.toggle('slide');
+    }, 100); // Adjust the delay time as needed
+  }

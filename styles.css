@@ -34,14 +34,14 @@ nav {
     max-width: 1140px;
     margin: auto;
 }
+.logo img{
+    width: 2rem;
+}
 
-/* .logo img {
-    height: 40px;
-} */
-
-.navbar {
+.navbar .act{
     list-style: none;
     display: flex;
+    gap: 1rem;
 }
 
 .navbar li {
@@ -49,9 +49,18 @@ nav {
 }
 
 .navbar li a {
-    color: #797979;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
+    font-size: 12px;
+    font-family: "Nunito", "Helvetica", "Arial", "sans-serif";
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
+
+.navbar li a:hover {
+    color: white; 
+}
+
 
 /* Home section styles */
 #home {
@@ -834,6 +843,7 @@ footer .wave#wave2 {
       max-width: 100%;
     }
     .navbar {
+        z-index: 33333;
         display: none;
         flex-direction: column;
         align-items: flex-end; /* Align the navbar to the right */
@@ -841,16 +851,71 @@ footer .wave#wave2 {
         top: 75px;
         right: 0; /* Position the navbar to the right */
         width: 200px; /* Adjust the width as needed */
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgb(96 96 96 / 80%);
         padding: 20px;
       }
     
       .navbar.active {
+        width: 100%;
+        height: 100%;
+     
         display: flex;
+        overflow: hidden;
+      }
+      .act {
+        display: block;
+        width: 50%;
+        height: 100%;
+        background: white;
+        padding-left: 23px;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: opacity 1s, transform 1s;
+      }
+      
+      .act.appear {
+        display: block;
+        opacity: 1;
+        transform: translateX(0);
+        animation: slideIn 0.3s ease-in;
+      }
+      
+      @keyframes slideIn {
+        from {
+          transform: translateX(150px);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      
+      .slide-out {
+        animation: slideOut 0.3s ease-out;
+      }
+      
+      @keyframes slideOut {
+        from {
+          transform: translateX(-50px);
+        }
+        to {
+          transform: translateX(100px);
+        }
       }
     
+
+
+    
     .navbar.active li {
-      margin: 10px 0;
+        width: 50%;
+        margin: 41px 0;
+      
+    }
+    .navbar.active li a{
+    
+    color: #9ab;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 100%;
     }
   
     .burger {
@@ -882,7 +947,7 @@ footer .wave#wave2 {
        margin: auto;
       }
       
-  }
+    }
 
 
   @media screen and (max-width: 475px) {
